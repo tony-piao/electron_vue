@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button type="button" @click="handleClick">调用</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// const { ipcRenderer } = require('electron')
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+  },
+  methods: {
+    handleClick () {
+      window.ipcRenderer.send('sendMessage', 'this is moon here')
+    }
   }
 }
 </script>
